@@ -1173,6 +1173,10 @@ tbody tr:hover {
     width: 80%;
     max-width: 300px;
   }
+
+  .san-choi img {
+    width: 190px;
+  }
 }
 
 /* Medium devices / mobile landscape (481px to 767px) */
