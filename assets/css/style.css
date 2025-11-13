@@ -895,6 +895,226 @@ tbody tr:hover {
 .header.pc {
   display: block;
 }
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  border-radius: var(--radius);
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  position: relative;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Promo Modal Specific */
+.promo-content {
+  background: transparent;
+  border-radius: 20px;
+  width: auto;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 80px;
+}
+
+.promo-main {
+  position: relative;
+  height: 80%;
+}
+
+.promo-main img {
+  display: flex;
+}
+
+.promo-footer {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.no-show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+}
+
+#closePromo {
+  color: white;
+  background: linear-gradient(180deg, #8dc2ff 0%, #2b8eff 100%);
+  border: none;
+  padding: 10px 40px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Calculator Modal Specific */
+.calc-content {
+  width: 500px;
+  padding: 30px;
+  text-align: center;
+}
+
+.calc-content h2 {
+  color: #2b8eff;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.inputs-section {
+  margin-bottom: 20px;
+}
+
+.input-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.input-group {
+  flex: 1;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  background: transparent;
+}
+
+.ket-qua {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.ket-qua h3 {
+  color: #2b8eff;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.result-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.result-item {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-item.full-width {
+  flex: 100%;
+}
+
+.result-item label {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 5px;
+}
+
+.result-item span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2b8eff;
+}
+
+.trang-thai {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.trang-thai p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.condition-btn {
+  background: #e3f2fd;
+  border: 1px solid #2b8eff;
+  color: #2b8eff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.tong-final {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2b8eff;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.close-modal-btn {
+  background: #ff6b35;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .header.mb {
@@ -1176,6 +1396,38 @@ tbody tr:hover {
 
   .san-choi img {
     width: 190px;
+  }
+
+  /* Modal Responsive */
+  .promo-content {
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    padding-bottom: 50px;
+  }
+  .promo-main img {
+    width: 100%;
+  }
+  .no-show {
+    font-size: 14px;
+  }
+  #closePromo {
+    padding: 4px 20px;
+    font-size: 12px;
+  }
+
+  .calc-content {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .input-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .result-row {
+    flex-direction: column;
   }
 }
 

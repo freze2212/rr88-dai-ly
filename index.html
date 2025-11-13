@@ -16,6 +16,90 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
+    <!-- Promo Modal -->
+    <div id="promoModal" class="modal">
+      <div class="modal-content promo-content">
+        <div class="promo-main">
+          <img src="assets/images/promo.png" />
+        </div>
+        <div class="promo-footer">
+          <label class="no-show">
+            <input type="checkbox" id="noShowToday" /> Không hiện thị hom nay
+          </label>
+          <button id="closePromo">ĐÓNG</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calculator Modal -->
+    <div id="calcModal" class="modal">
+      <div class="modal-content calc-content">
+        <h2>CÔNG CỤ TÍNH HOA HỒNG ĐẠI LÝ</h2>
+        <div class="inputs-section">
+          <div class="input-row">
+            <div class="input-group">
+              <label>Thua tháng (1 điểm = 1,000 VND)</label>
+              <input type="number" id="thuaThang" value="0" min="0" />
+            </div>
+            <div class="input-group">
+              <label>Hoàn trả (1 điểm = 1,000 VND)</label>
+              <input type="number" id="hoanTra" value="0" min="0" />
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-group">
+              <label>Khuyến mãi (1 điểm = 1,000 VND)</label>
+              <input type="number" id="khuyenMai" value="0" min="0" />
+            </div>
+            <div class="input-group">
+              <label>Thành viên hợp lệ</label>
+              <input type="number" id="thanhVien" value="0" min="0" />
+            </div>
+          </div>
+        </div>
+        <div class="ket-qua">
+          <h3>Kết quả tính toán</h3>
+          <div class="result-row">
+            <div class="result-item">
+              <label>Chi phí nền tảng</label>
+              <span id="chiPhi">0 VND</span>
+            </div>
+            <div class="result-item">
+              <label>Lợi nhuận ròng</label>
+              <span id="loiNhuan">0 VND</span>
+            </div>
+            <div class="result-item">
+              <label>Thành viên hợp lệ</label>
+              <span id="membersDisplay">0</span>
+            </div>
+          </div>
+          <div class="result-row">
+            <div class="result-item full-width">
+              <label>Tỷ lệ hoa hồng</label>
+              <span id="tyLe">0%</span>
+            </div>
+          </div>
+          <div class="result-row">
+            <div class="result-item full-width">
+              <label>Tổng hoa hồng</label>
+              <span id="tongHoaHong">0 VND</span>
+            </div>
+          </div>
+        </div>
+        <div class="trang-thai">
+          <p>Mô: Điều chỉnh các thông số dưới hoặc hóa đơn của bạn.</p>
+          <button class="condition-btn">
+            Không điều kiện (cần nhập 3 tháng viên)
+          </button>
+        </div>
+        <div class="tong-final">
+          <span>Tổng hoa hồng</span>
+          <span id="tongFinal">0 VND</span>
+        </div>
+        <button id="closeCalc" class="close-modal-btn">Đóng</button>
+      </div>
+    </div>
+
     <div class="tele-bot-div">
       <div class="bot-content">
         Tele hỗ trợ đại lý duy nhất của RR88 Liên hệ qua link
@@ -96,18 +180,6 @@
         <button class="close-btn" id="closeSidebar">&times;</button>
       </div>
 
-      <!-- <nav class="sidebar-nav">
-        <ul>
-          <li><a href="#">Giới thiệu về RR88</a></li>
-          <li><a href="#">Điều khoản & điều kiện</a></li>
-          <li><a href="#">Chơi có trách nhiệm</a></li>
-          <li><a href="#">Miễn trách nhiệm</a></li>
-          <li><a href="#">Quyền riêng tư</a></li>
-          <li><a href="#">Hướng dẫn nạp rút</a></li>
-          <li><a href="#">Câu hỏi thường gặp</a></li>
-          <li><a href="#">Liên hệ</a></li>
-        </ul>
-      </nav> -->
       <div class="sidebar-support">
         <div class="item">
           <img src="assets/images/customer-support.png" alt="" /> Chăm sóc đại
@@ -431,6 +503,7 @@
           <div class="commis-calculator">
             <h3>Bảng tính hoa hồng tự động</h3>
             <p>Công cụ tính toán hoa hồng chính xác cho đại lý</p>
+            <!-- id="openCalcBtn" -->
             <button>
               <img src="assets/images/calc.png" alt="" /> Mở công cụ tính hoa
               hồng
@@ -831,6 +904,114 @@
             botContent.style.display =
               botContent.style.display === "none" ? "block" : "none";
           });
+        }
+
+        // Promo Modal Logic
+        const promoModal = document.getElementById("promoModal");
+        const closePromo = document.getElementById("closePromo");
+        const noShowToday = document.getElementById("noShowToday");
+
+        function openPromo() {
+          promoModal.style.display = "flex";
+        }
+
+        function closePromoModal() {
+          promoModal.style.display = "none";
+          if (noShowToday.checked) {
+            localStorage.setItem("noPromoToday", "true");
+          }
+        }
+
+        if (closePromo) closePromo.addEventListener("click", closePromoModal);
+
+        // Check if should show promo on load
+        if (!localStorage.getItem("noPromoToday")) {
+          openPromo();
+        }
+
+        // Calculator Modal Logic
+        const openCalcBtn = document.getElementById("openCalcBtn");
+        const calcModal = document.getElementById("calcModal");
+        const closeCalc = document.getElementById("closeCalc");
+        const inputs = ["thuaThang", "hoanTra", "khuyenMai", "thanhVien"].map(
+          (id) => document.getElementById(id)
+        );
+
+        function openCalc() {
+          calcModal.style.display = "flex";
+          calculate(); // Initial calculation
+        }
+
+        function closeCalcModal() {
+          calcModal.style.display = "none";
+        }
+
+        if (openCalcBtn) openCalcBtn.addEventListener("click", openCalc);
+        if (closeCalc) closeCalc.addEventListener("click", closeCalcModal);
+
+        // Auto calculate on input change
+        inputs.forEach((input) => {
+          if (input) input.addEventListener("input", calculate);
+        });
+
+        // Fake API Calculation Function
+        function calculate() {
+          const data = {
+            thuaThang:
+              parseFloat(document.getElementById("thuaThang").value) || 0,
+            hoanTra: parseFloat(document.getElementById("hoanTra").value) || 0,
+            khuyenMai:
+              parseFloat(document.getElementById("khuyenMai").value) || 0,
+            thanhVien:
+              parseFloat(document.getElementById("thanhVien").value) || 0,
+          };
+
+          console.log("Data sent to fake API:", data);
+
+          // Simulate fake API call
+          setTimeout(() => {
+            // Calculation logic
+            const total = data.thuaThang;
+            const refund = data.hoanTra;
+            const promo = data.khuyenMai;
+            const members = data.thanhVien;
+
+            const tempProfit = total - refund - promo;
+            let chiPhi = 0;
+            if (tempProfit >= 0) {
+              chiPhi = total * 0.1;
+            }
+            const netProfit = tempProfit - chiPhi;
+
+            let rate = 0;
+            if (members >= 3 && netProfit >= 1) rate = 0.35;
+            if (members >= 5) rate = 0.45;
+            if (netProfit >= 100000 && members >= 10) rate = 0.5;
+            if (netProfit >= 1000000 && members >= 20) rate = 0.55;
+            if (netProfit >= 5000000 && members >= 30) rate = 0.6;
+
+            const totalCommission = netProfit * rate;
+
+            // Update UI (in points * 1000 for VND)
+            document.getElementById("chiPhi").textContent =
+              Math.round(chiPhi * 1000).toLocaleString() + " VND";
+            document.getElementById("loiNhuan").textContent =
+              Math.round(netProfit * 1000).toLocaleString() + " VND";
+            document.getElementById("membersDisplay").textContent = members;
+            document.getElementById("tyLe").textContent = rate * 100 + "%";
+            document.getElementById("tongHoaHong").textContent =
+              Math.round(totalCommission * 1000).toLocaleString() + " VND";
+            document.getElementById("tongFinal").textContent =
+              Math.round(totalCommission * 1000).toLocaleString() + " VND";
+
+            console.log("Fake API response / Calculated results:", {
+              chiPhi,
+              netProfit,
+              rate,
+              totalCommission,
+              vndTotal: totalCommission * 1000,
+            });
+          }, 500); // Simulate API delay
         }
       });
     </script>
