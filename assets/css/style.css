@@ -1038,7 +1038,7 @@ tbody tr:hover {
 
   .steps-grid {
     display: grid;
-    gap: 3rem;
+    gap: 1rem;
   }
   .steps-ico {
     /* position: absolute;
@@ -1178,7 +1178,7 @@ tbody tr:hover {
 /* Medium devices / mobile landscape (481px to 767px) */
 @media (min-width: 481px) and (max-width: 767px) {
   .steps-grid {
-    gap: 3rem;
+    gap: 1rem;
   }
   .footer_grid {
     position: absolute;
