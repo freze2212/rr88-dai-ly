@@ -19,7 +19,9 @@
     <div class="tele-bot-div">
       <div class="bot-content">
         Tele hỗ trợ đại lý duy nhất của RR88 Liên hệ qua link
-        <span style="color: #2b8eff">https://t.me/@CSDL_RR88</span>
+        <a href="" target="_blank" style="color: #2b8eff"
+          >https://t.me/@CSDL_RR88</a
+        >
         Hãy chú ý các phương thức liên hệ khác đều là giả mạo.
       </div>
       <div class="bot-img">
@@ -27,8 +29,35 @@
       </div>
     </div>
     <!-- Header -->
-    <header class="header">
+    <header class="header mb">
       <div class="container">
+        <div class="mobile-nav">
+          <button class="hamburger" id="hamburger">
+            <img src="assets/images/bredcrumb.png" alt="bredcrumb" />
+          </button>
+          <a href="#" class="logo">
+            <img
+              src="assets/images/logo.png"
+              alt="RR88 Logo"
+              style="height: 38px"
+            />
+          </a>
+
+          <div class="header-right">
+            <div class="auth-btn mobileshow">
+              <button class="btn-primary">đăng ký</button>&nbsp;
+              <button class="btn-primary">ĐĂNG NHẬP</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <header class="header pc">
+      <div class="container">
+        <div class="hamburger" id="hamburger">
+          <img src="assets/images/bredcrumb.png" alt="bredcrumb" />
+        </div>
         <a href="#" class="logo">
           <img
             src="assets/images/logo.png"
@@ -46,12 +75,51 @@
             <img src="assets/images/telegram.png" alt="" /> Kênh tin tức
           </div>
         </div>
-        <div class="auth-btn">
-          <button class="btn-primary">đăng ký</button>&nbsp;
-          <button class="btn-primary">ĐĂNG NHẬP</button>
+        <div class="header-right">
+          <div class="auth-btn">
+            <button class="btn-primary">đăng ký</button>&nbsp;
+            <button class="btn-primary">ĐĂNG NHẬP</button>
+          </div>
         </div>
       </div>
     </header>
+
+    <aside id="sidebar" class="sidebar">
+      <div class="side-inner">
+        <a href="#" class="logo">
+          <img
+            src="assets/images/logo.png"
+            alt="RR88 Logo"
+            style="height: 38px"
+          />
+        </a>
+        <button class="close-btn" id="closeSidebar">&times;</button>
+      </div>
+
+      <!-- <nav class="sidebar-nav">
+        <ul>
+          <li><a href="#">Giới thiệu về RR88</a></li>
+          <li><a href="#">Điều khoản & điều kiện</a></li>
+          <li><a href="#">Chơi có trách nhiệm</a></li>
+          <li><a href="#">Miễn trách nhiệm</a></li>
+          <li><a href="#">Quyền riêng tư</a></li>
+          <li><a href="#">Hướng dẫn nạp rút</a></li>
+          <li><a href="#">Câu hỏi thường gặp</a></li>
+          <li><a href="#">Liên hệ</a></li>
+        </ul>
+      </nav> -->
+      <div class="sidebar-support">
+        <div class="item">
+          <img src="assets/images/customer-support.png" alt="" /> Chăm sóc đại
+          lý
+        </div>
+        <div class="item">
+          <img src="assets/images/telegram.png" alt="" /> Kênh tin tức
+        </div>
+      </div>
+    </aside>
+
+    <div id="overlay" class="overlay"></div>
 
     <section class="" id="hero" style="position: relative">
       <img
@@ -733,6 +801,36 @@
         const vimeoPlayer = document.getElementById("vimeoPlayer");
         if (vimeoPlayer) {
           console.log("Vimeo player ready");
+        }
+
+        // Mobile Sidebar Functionality
+        const hamburger = document.getElementById("hamburger");
+        const closeBtn = document.getElementById("closeSidebar");
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+
+        function openSidebar() {
+          if (sidebar) sidebar.classList.add("open");
+          if (overlay) overlay.style.display = "block";
+        }
+
+        function closeSidebar() {
+          if (sidebar) sidebar.classList.remove("open");
+          if (overlay) overlay.style.display = "none";
+        }
+
+        if (hamburger) hamburger.addEventListener("click", openSidebar);
+        if (closeBtn) closeBtn.addEventListener("click", closeSidebar);
+        if (overlay) overlay.addEventListener("click", closeSidebar);
+
+        // Bot Toggle Functionality
+        const teleBot = document.querySelector(".tele-bot");
+        const botContent = document.querySelector(".bot-content");
+        if (teleBot && botContent) {
+          teleBot.addEventListener("click", () => {
+            botContent.style.display =
+              botContent.style.display === "none" ? "block" : "none";
+          });
         }
       });
     </script>
