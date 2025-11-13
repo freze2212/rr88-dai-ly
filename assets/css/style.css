@@ -754,6 +754,7 @@ tbody tr:hover {
   border-radius: 10px;
   padding: 10px;
 }
+
 .tele-bot-div {
   position: fixed;
   right: 50px;
@@ -959,7 +960,13 @@ tbody tr:hover {
     width: 140px;
     height: auto;
   }
+  .vid-item .icon {
+    display: none;
+  }
 
+  .vid-grid {
+    grid-template-columns: auto;
+  }
   .step p {
     font-size: 14px;
     min-height: 90px;
@@ -1034,11 +1041,12 @@ tbody tr:hover {
     gap: 3rem;
   }
   .steps-ico {
-    position: absolute;
+    /* position: absolute;
     right: 0;
     top: 98%;
     left: 0;
-    transform: rotate(90deg);
+    transform: rotate(90deg); */
+    display: none;
   }
 
   .footer {
