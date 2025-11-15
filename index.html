@@ -49,77 +49,104 @@
           </div>
 
           <div class="inputs-section">
-            <div class="input-row">
-              <div class="input-group">
-                <label>Thua tháng (1 điểm = 1,000 VND)</label>
-                <input type="number" id="thuaThang" value="0" min="0" />
+            <div class="input-flex">
+              <!-- Thua Thang Row -->
+              <div class="input-layout">
+                <div class="input-row">
+                  <div class="input-group">
+                    <label>Thua tháng (1 điểm = 1,000 VND)</label>
+                    <input type="number" id="thuaThang" value="0" min="0" />
+                  </div>
+                </div>
+                <div class="input-row">
+                  <div class="input-group">
+                    <div class="slidecontainer">
+                      <input
+                        type="range"
+                        min="0"
+                        max="10000000"
+                        value="0"
+                        step="1000"
+                        class="slider"
+                        id="thuaThangSlider"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="input-group">
-                <label>Hoàn trả (1 điểm = 1,000 VND)</label>
-                <input type="number" id="hoanTra" value="0" min="0" />
-              </div>
-            </div>
 
-            <div class="input-row">
-              <div class="input-group">
-                <div class="slidecontainer">
-                  <input
-                    type="range"
-                    min="1"
-                    max="100"
-                    value="50"
-                    class="slider"
-                    id="thuaThang"
-                  />
+              <!-- Hoan Tra Row -->
+              <div class="input-layout">
+                <div class="input-row">
+                  <div class="input-group">
+                    <label>Hoàn trả (1 điểm = 1,000 VND)</label>
+                    <input type="number" id="hoanTra" value="0" min="0" />
+                  </div>
                 </div>
-              </div>
-              <div class="input-group">
-                <div class="slidecontainer">
-                  <input
-                    type="range"
-                    min="1"
-                    max="100"
-                    value="50"
-                    class="slider"
-                    id="hoanTra"
-                  />
+                <div class="input-row">
+                  <div class="input-group">
+                    <div class="slidecontainer">
+                      <input
+                        type="range"
+                        min="0"
+                        max="1000000"
+                        value="0"
+                        step="1000"
+                        class="slider"
+                        id="hoanTraSlider"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <div class="input-row">
-              <div class="input-group">
-                <label>Khuyến mãi (1 điểm = 1,000 VND)</label>
-                <input type="number" id="khuyenMai" value="0" min="0" />
-              </div>
-              <div class="input-group">
-                <label>Thành viên hợp lệ</label>
-                <input type="number" id="thanhVien" value="0" min="0" />
-              </div>
-            </div>
-            <div class="input-row">
-              <div class="input-group">
-                <div class="slidecontainer">
-                  <input
-                    type="range"
-                    min="1"
-                    max="100"
-                    value="50"
-                    class="slider"
-                    id="khuyenMai"
-                  />
+            <div class="input-flex">
+              <!-- Khuyen Mai Row -->
+              <div class="input-layout">
+                <div class="input-row">
+                  <div class="input-group">
+                    <label>Khuyến mãi (1 điểm = 1,000 VND)</label>
+                    <input type="number" id="khuyenMai" value="0" min="0" />
+                  </div>
+                </div>
+                <div class="input-row">
+                  <div class="input-group">
+                    <div class="slidecontainer">
+                      <input
+                        type="range"
+                        min="0"
+                        max="1000000"
+                        value="0"
+                        step="1000"
+                        class="slider"
+                        id="khuyenMaiSlider"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="input-group">
-                <div class="slidecontainer">
-                  <input
-                    type="range"
-                    min="1"
-                    max="100"
-                    value="50"
-                    class="slider"
-                    id="thanhVien"
-                  />
+              <!-- Thanh Vien Row -->
+              <div class="input-layout">
+                <div class="input-row">
+                  <div class="input-group">
+                    <label>Thành viên hợp lệ</label>
+                    <input type="number" id="thanhVien" value="0" min="0" />
+                  </div>
+                </div>
+                <div class="input-row">
+                  <div class="input-group">
+                    <div class="slidecontainer">
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="0"
+                        step="1"
+                        class="slider"
+                        id="thanhVienSlider"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -127,7 +154,7 @@
 
           <div class="ket-qua">
             <div class="section-heading">
-              <h3><img src="assets/images/checkok.png" /> Nhập dữ liệu</h3>
+              <h3><img src="assets/images/checkok.png" /> Kết quả tính toán</h3>
             </div>
             <div class="result-row">
               <div class="result-item item1">
@@ -140,13 +167,13 @@
               </div>
               <div class="result-item item3">
                 <label>Tỷ lệ hoa hồng</label>
-                <span id=" tyLe">0 VND</span>
+                <span id="tyLe">0%</span>
               </div>
             </div>
 
             <div class="result-row">
               <div class="result-item full-width item4">
-                <div class="tongHoaHongs">
+                <div class="tongHoaHongs" id="statusContainer">
                   <label style="color: #565656; font-weight: 700"
                     >Trạng thái</label
                   >
@@ -164,17 +191,11 @@
               </div>
             </div>
           </div>
-          <!-- <div class="trang-thai">
-            <p>Mô: Điều chỉnh các thông số dưới hoặc hóa đơn của bạn.</p>
-            <button class="condition-btn">
-              Không điều kiện (cần nhập 3 tháng viên)
-            </button>
-          </div> -->
+
           <div class="tong-final">
             <span>Tổng hoa hồng</span>
             <span id="tongFinal">0 VND</span>
           </div>
-          <!-- <button id="closeCalc" class="close-modal-btn">Đóng</button> -->
         </div>
       </div>
     </div>
@@ -543,7 +564,7 @@
             <p>Công cụ tính toán hoa hồng chính xác cho đại lý</p>
             <!-- id="openCalcBtn" -->
             <button id="openCalcBtn">
-              123<img src="assets/images/calc.png" alt="" /> Mở công cụ tính hoa
+              <img src="assets/images/calc.png" alt="" /> Mở công cụ tính hoa
               hồng
             </button>
           </div>
@@ -1123,12 +1144,10 @@
         initializePageData();
 
         // Calculator Modal Logic
+        // Calculator Modal Logic
         const openCalcBtn = document.getElementById("openCalcBtn");
         const calcModal = document.getElementById("calcModal");
         const closeCalc = document.getElementById("closeCalc");
-        const inputs = ["thuaThang", "hoanTra", "khuyenMai", "thanhVien"].map(
-          (id) => document.getElementById(id)
-        );
 
         function openCalc() {
           calcModal.style.display = "flex";
@@ -1142,10 +1161,8 @@
         if (openCalcBtn) openCalcBtn.addEventListener("click", openCalc);
         if (closeCalc) closeCalc.addEventListener("click", closeCalcModal);
 
-        // Auto calculate on input change
-        inputs.forEach((input) => {
-          if (input) input.addEventListener("input", calculate);
-        });
+        // Initialize sliders and number inputs
+        initializeCalculatorInputs();
 
         // Fake API Calculation Function
         function calculate() {
@@ -1159,9 +1176,9 @@
               parseFloat(document.getElementById("thanhVien").value) || 0,
           };
 
-          console.log("Data sent to fake API:", data);
+          console.log("Data for calculation:", data);
 
-          // Simulate fake API call
+          // Simulate API call
           setTimeout(() => {
             // Calculation logic
             const total = data.thuaThang;
@@ -1185,26 +1202,129 @@
 
             const totalCommission = netProfit * rate;
 
-            // Update UI (in points * 1000 for VND)
+            // Update UI
             document.getElementById("chiPhi").textContent =
               Math.round(chiPhi * 1000).toLocaleString() + " VND";
             document.getElementById("loiNhuan").textContent =
               Math.round(netProfit * 1000).toLocaleString() + " VND";
-            document.getElementById("membersDisplay").textContent = members;
             document.getElementById("tyLe").textContent = rate * 100 + "%";
-            document.getElementById("tongHoaHong").textContent =
-              Math.round(totalCommission * 1000).toLocaleString() + " VND";
             document.getElementById("tongFinal").textContent =
               Math.round(totalCommission * 1000).toLocaleString() + " VND";
 
-            console.log("Fake API response / Calculated results:", {
-              chiPhi,
-              netProfit,
-              rate,
-              totalCommission,
-              vndTotal: totalCommission * 1000,
-            });
-          }, 500); // Simulate API delay
+            // Update status message
+            updateStatusMessage(members, netProfit, totalCommission);
+          }, 100);
+        }
+
+        // Initialize calculator inputs with slider functionality
+        function initializeCalculatorInputs() {
+          const inputConfigs = [
+            {
+              id: "thuaThang",
+              sliderId: "thuaThangSlider",
+              min: 0,
+              max: 10000000,
+              step: 1000,
+            },
+            {
+              id: "hoanTra",
+              sliderId: "hoanTraSlider",
+              min: 0,
+              max: 1000000,
+              step: 1000,
+            },
+            {
+              id: "khuyenMai",
+              sliderId: "khuyenMaiSlider",
+              min: 0,
+              max: 1000000,
+              step: 1000,
+            },
+            {
+              id: "thanhVien",
+              sliderId: "thanhVienSlider",
+              min: 0,
+              max: 100,
+              step: 1,
+            },
+          ];
+
+          inputConfigs.forEach((config) => {
+            const numberInput = document.getElementById(config.id);
+            const sliderInput = document.getElementById(config.sliderId);
+
+            if (numberInput && sliderInput) {
+              // Number input change -> update slider
+              numberInput.addEventListener("input", function () {
+                sliderInput.value = this.value;
+                calculate();
+              });
+
+              // Slider change -> update number input
+              sliderInput.addEventListener("input", function () {
+                numberInput.value = this.value;
+                calculate();
+              });
+
+              // Set initial values
+              sliderInput.min = config.min;
+              sliderInput.max = config.max;
+              sliderInput.step = config.step;
+            }
+          });
+
+          // Auto calculate on input change
+          const inputs = ["thuaThang", "hoanTra", "khuyenMai", "thanhVien"].map(
+            (id) => document.getElementById(id)
+          );
+
+          inputs.forEach((input) => {
+            if (input) input.addEventListener("input", calculate);
+          });
+        }
+
+        // Update status message based on conditions
+        function updateStatusMessage(members, netProfit, totalCommission) {
+          const statusElement = document.getElementById("tongHoaHong");
+          const conditionBtn = document.querySelector(".condition-btn");
+
+          if (!statusElement) return;
+
+          if (members < 3) {
+            statusElement.innerHTML = `
+                <h4 style="color: #2b8eff; font-weight: 700">
+                    Cần ít nhất 3 thành viên hợp lệ để nhận hoa hồng
+                </h4>
+            `;
+            if (conditionBtn) {
+              conditionBtn.textContent =
+                "Không đủ điều kiện (cần ít nhất 3 thành viên)";
+              conditionBtn.style.backgroundColor = "#ff6b6b";
+            }
+          } else if (netProfit <= 0) {
+            statusElement.innerHTML = `
+            
+                <h4 style="color: #ffa500; font-weight: 700">
+                    Lợi nhuận ròng không đủ để tính hoa hồng
+                </h4>
+            `;
+            if (conditionBtn) {
+              conditionBtn.textContent =
+                "Không đủ điều kiện (lợi nhuận ròng ≤ 0)";
+              conditionBtn.style.backgroundColor = "#ffa500";
+            }
+          } else {
+            statusElement.innerHTML = `
+
+                <h4 style="color: #565656; font-weight: 700">
+                    Mẹo: <span style="color: #565656; display: inline">Điều chỉnh các thông số để tối ưu hóa hoa hồng của bạn.</span>
+                </h4>
+            `;
+            if (conditionBtn) {
+              conditionBtn.textContent = "Đủ điều kiện nhận hoa hồng";
+              conditionBtn.style.backgroundColor = "#4CAF50";
+            }
+          }
         }
       });
     </script>
