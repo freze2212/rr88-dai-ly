@@ -454,9 +454,9 @@ tbody tr:hover {
   position: relative;
 }
 
-.agent-title-bg span {
+.agent-title-bg h4 {
   position: absolute;
-  top: 2px;
+  top: 5px;
   left: 40px;
   font-size: 17.5px;
   font-weight: 800;
@@ -918,6 +918,12 @@ tbody tr:hover {
   position: relative;
   animation: modalFadeIn 0.3s ease;
 }
+.close-icons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
 
 @keyframes modalFadeIn {
   from {
@@ -984,17 +990,23 @@ tbody tr:hover {
 
 /* Calculator Modal Specific */
 .calc-content {
-  width: 500px;
-  padding: 30px;
+  width: 750px;
+  padding: 0px;
   text-align: center;
 }
 
 .calc-content h2 {
-  color: #2b8eff;
-  margin-bottom: 20px;
-  font-size: 24px;
+  color: #fff;
+  margin-bottom: 0;
+  font-size: 16px;
 }
-
+.model-header {
+  background: linear-gradient(180deg, #5aa7ff 0%, #2b8eff 100%);
+  color: #fff;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+}
 .inputs-section {
   margin-bottom: 20px;
 }
@@ -1008,6 +1020,15 @@ tbody tr:hover {
 .input-group {
   flex: 1;
   text-align: left;
+}
+
+.section-heading h3 {
+  color: #2b8eff;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  gap: 5px;
 }
 
 .input-group label {
@@ -1033,7 +1054,7 @@ tbody tr:hover {
 
 .ket-qua h3 {
   color: #2b8eff;
-  text-align: center;
+  text-align: left;
   margin-bottom: 15px;
 }
 
@@ -1045,7 +1066,6 @@ tbody tr:hover {
 
 .result-item {
   flex: 1;
-  background: #f9f9f9;
   padding: 10px;
   border-radius: 5px;
   display: flex;
@@ -1053,20 +1073,42 @@ tbody tr:hover {
   align-items: center;
 }
 
+.result-item.item1 {
+  background: #f0f6ff;
+  border: 1.02px solid #c2daff;
+}
+.result-item.item2 {
+  background: #f1fdf4;
+  border: 1.02px solid #a7ffbd;
+}
+.result-item.item3 {
+  background: #faf5ff;
+  border: 1.02px solid #e1c3ff;
+}
+.result-item.item4 {
+  background: #f9fafb;
+  border: 1.02px solid #f0f0f0;
+}
+
 .result-item.full-width {
-  flex: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: unset;
 }
 
 .result-item label {
   font-size: 12px;
   color: #999;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
+  display: block;
 }
 
 .result-item span {
   font-size: 16px;
   font-weight: bold;
   color: #2b8eff;
+  display: block;
 }
 
 .trang-thai {
@@ -1081,10 +1123,10 @@ tbody tr:hover {
 }
 
 .condition-btn {
-  background: #e3f2fd;
+  background: #2b8eff;
   border: 1px solid #2b8eff;
-  color: #2b8eff;
-  padding: 8px 16px;
+  color: #fff;
+  padding: 4px 8px;
   border-radius: 20px;
   font-size: 12px;
   cursor: pointer;
@@ -1112,6 +1154,49 @@ tbody tr:hover {
   font-weight: bold;
   cursor: pointer;
   width: 100%;
+}
+
+/* slider ranger  */
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #5aa7ff 0%, #2b8eff 100%);
+  cursor: pointer;
+  border: 1px solid #fff;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  /* background: #04aa6d; */
+  background: linear-gradient(180deg, #5aa7ff 0%, #2b8eff 100%);
+
+  cursor: pointer;
 }
 
 /* ===== Responsive ===== */
@@ -1194,7 +1279,7 @@ tbody tr:hover {
     display: none;
   }
 
-  .agent-title-bg span {
+  .agent-title-bg h4 {
     font-size: 20px;
     font-weight: 500;
     line-height: normal;
@@ -1416,8 +1501,7 @@ tbody tr:hover {
   }
 
   .calc-content {
-    width: 95%;
-    padding: 20px;
+    width: 100%;
   }
 
   .input-row {

@@ -34,69 +34,148 @@
     <!-- Calculator Modal -->
     <div id="calcModal" class="modal">
       <div class="modal-content calc-content">
-        <h2>CÔNG CỤ TÍNH HOA HỒNG ĐẠI LÝ</h2>
-        <div class="inputs-section">
-          <div class="input-row">
-            <div class="input-group">
-              <label>Thua tháng (1 điểm = 1,000 VND)</label>
-              <input type="number" id="thuaThang" value="0" min="0" />
-            </div>
-            <div class="input-group">
-              <label>Hoàn trả (1 điểm = 1,000 VND)</label>
-              <input type="number" id="hoanTra" value="0" min="0" />
-            </div>
-          </div>
-          <div class="input-row">
-            <div class="input-group">
-              <label>Khuyến mãi (1 điểm = 1,000 VND)</label>
-              <input type="number" id="khuyenMai" value="0" min="0" />
-            </div>
-            <div class="input-group">
-              <label>Thành viên hợp lệ</label>
-              <input type="number" id="thanhVien" value="0" min="0" />
-            </div>
-          </div>
+        <div id="closeCalc" class="close-icons">
+          <img
+            src="assets/images/close-me.png"
+            style="width: 30px; height: 30px"
+          />
         </div>
-        <div class="ket-qua">
-          <h3>Kết quả tính toán</h3>
-          <div class="result-row">
-            <div class="result-item">
-              <label>Chi phí nền tảng</label>
-              <span id="chiPhi">0 VND</span>
+        <div class="model-header">
+          <h2>CÔNG CỤ TÍNH HOA HỒNG ĐẠI LÝ</h2>
+        </div>
+        <div class="" style="padding: 10px 20px">
+          <div class="section-heading">
+            <h3><img src="assets/images/circl.png" /> Nhập dữ liệu</h3>
+          </div>
+
+          <div class="inputs-section">
+            <div class="input-row">
+              <div class="input-group">
+                <label>Thua tháng (1 điểm = 1,000 VND)</label>
+                <input type="number" id="thuaThang" value="0" min="0" />
+              </div>
+              <div class="input-group">
+                <label>Hoàn trả (1 điểm = 1,000 VND)</label>
+                <input type="number" id="hoanTra" value="0" min="0" />
+              </div>
             </div>
-            <div class="result-item">
-              <label>Lợi nhuận ròng</label>
-              <span id="loiNhuan">0 VND</span>
+
+            <div class="input-row">
+              <div class="input-group">
+                <div class="slidecontainer">
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value="50"
+                    class="slider"
+                    id="thuaThang"
+                  />
+                </div>
+              </div>
+              <div class="input-group">
+                <div class="slidecontainer">
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value="50"
+                    class="slider"
+                    id="hoanTra"
+                  />
+                </div>
+              </div>
             </div>
-            <div class="result-item">
-              <label>Thành viên hợp lệ</label>
-              <span id="membersDisplay">0</span>
+
+            <div class="input-row">
+              <div class="input-group">
+                <label>Khuyến mãi (1 điểm = 1,000 VND)</label>
+                <input type="number" id="khuyenMai" value="0" min="0" />
+              </div>
+              <div class="input-group">
+                <label>Thành viên hợp lệ</label>
+                <input type="number" id="thanhVien" value="0" min="0" />
+              </div>
+            </div>
+            <div class="input-row">
+              <div class="input-group">
+                <div class="slidecontainer">
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value="50"
+                    class="slider"
+                    id="khuyenMai"
+                  />
+                </div>
+              </div>
+              <div class="input-group">
+                <div class="slidecontainer">
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value="50"
+                    class="slider"
+                    id="thanhVien"
+                  />
+                </div>
+              </div>
             </div>
           </div>
-          <div class="result-row">
-            <div class="result-item full-width">
-              <label>Tỷ lệ hoa hồng</label>
-              <span id="tyLe">0%</span>
+
+          <div class="ket-qua">
+            <div class="section-heading">
+              <h3><img src="assets/images/checkok.png" /> Nhập dữ liệu</h3>
+            </div>
+            <div class="result-row">
+              <div class="result-item item1">
+                <label>Chi phí nền tảng</label>
+                <span id="chiPhi">0 VND</span>
+              </div>
+              <div class="result-item item2">
+                <label>Lợi nhuận ròng</label>
+                <span id="loiNhuan">0 VND</span>
+              </div>
+              <div class="result-item item3">
+                <label>Tỷ lệ hoa hồng</label>
+                <span id=" tyLe">0 VND</span>
+              </div>
+            </div>
+
+            <div class="result-row">
+              <div class="result-item full-width item4">
+                <div class="tongHoaHongs">
+                  <label style="color: #565656; font-weight: 700"
+                    >Trạng thái</label
+                  >
+                  <h6 id="tongHoaHong" style="color: #565656; font-weight: 700">
+                    Mẹo:
+                    <div class="" style="color: #565656; display: inline">
+                      Điều chỉnh các thông số để tối ưu hóa hoa hồng của bạn.
+                    </div>
+                  </h6>
+                </div>
+
+                <button class="condition-btn">
+                  Không đủ điều kiện (cần ít nhất 3 thành viên)
+                </button>
+              </div>
             </div>
           </div>
-          <div class="result-row">
-            <div class="result-item full-width">
-              <label>Tổng hoa hồng</label>
-              <span id="tongHoaHong">0 VND</span>
-            </div>
+          <!-- <div class="trang-thai">
+            <p>Mô: Điều chỉnh các thông số dưới hoặc hóa đơn của bạn.</p>
+            <button class="condition-btn">
+              Không điều kiện (cần nhập 3 tháng viên)
+            </button>
+          </div> -->
+          <div class="tong-final">
+            <span>Tổng hoa hồng</span>
+            <span id="tongFinal">0 VND</span>
           </div>
+          <!-- <button id="closeCalc" class="close-modal-btn">Đóng</button> -->
         </div>
-        <div class="trang-thai">
-          <p>Mô: Điều chỉnh các thông số dưới hoặc hóa đơn của bạn.</p>
-          <button class="condition-btn">
-            Không điều kiện (cần nhập 3 tháng viên)
-          </button>
-        </div>
-        <div class="tong-final">
-          <span>Tổng hoa hồng</span>
-          <span id="tongFinal">0 VND</span>
-        </div>
-        <button id="closeCalc" class="close-modal-btn">Đóng</button>
       </div>
     </div>
 
@@ -113,13 +192,14 @@
       </div>
     </div>
     <!-- Header -->
+
     <header class="header mb">
       <div class="container">
         <div class="mobile-nav">
           <button class="hamburger" id="hamburger">
             <img src="assets/images/bredcrumb.png" alt="bredcrumb" />
           </button>
-          <a href="#" class="logo">
+          <a href="#" class="logo" id="homeLogoMobile">
             <img
               src="assets/images/logo.png"
               alt="RR88 Logo"
@@ -129,8 +209,9 @@
 
           <div class="header-right">
             <div class="auth-btn mobileshow">
-              <button class="btn-primary">đăng ký</button>&nbsp;
-              <button class="btn-primary">ĐĂNG NHẬP</button>
+              <button class="btn-primary" id="registerBtnMobile">đăng ký</button
+              >&nbsp;
+              <button class="btn-primary" id="loginBtnMobile">ĐĂNG NHẬP</button>
             </div>
           </div>
         </div>
@@ -142,7 +223,7 @@
         <div class="hamburger" id="hamburger">
           <img src="assets/images/bredcrumb.png" alt="bredcrumb" />
         </div>
-        <a href="#" class="logo">
+        <a href="#" class="logo" id="homeLogo">
           <img
             src="assets/images/logo.png"
             alt="RR88 Logo"
@@ -150,19 +231,19 @@
           />
         </a>
         <div class="support-item">
-          <div class="item">
+          <div class="item" id="supportItem">
             <img src="assets/images/customer-support.png" alt="" /> Chăm sóc đại
             lý
           </div>
           &nbsp;
-          <div class="item">
+          <div class="item" id="teleNewsItem">
             <img src="assets/images/telegram.png" alt="" /> Kênh tin tức
           </div>
         </div>
         <div class="header-right">
           <div class="auth-btn">
-            <button class="btn-primary">đăng ký</button>&nbsp;
-            <button class="btn-primary">ĐĂNG NHẬP</button>
+            <button class="btn-primary" id="registerBtn">đăng ký</button>&nbsp;
+            <button class="btn-primary" id="loginBtn">ĐĂNG NHẬP</button>
           </div>
         </div>
       </div>
@@ -170,7 +251,7 @@
 
     <aside id="sidebar" class="sidebar">
       <div class="side-inner">
-        <a href="#" class="logo">
+        <a href="#" class="logo" id="sidebarLogo">
           <img
             src="assets/images/logo.png"
             alt="RR88 Logo"
@@ -181,11 +262,11 @@
       </div>
 
       <div class="sidebar-support">
-        <div class="item">
+        <div class="item" id="sidebarSupport">
           <img src="assets/images/customer-support.png" alt="" /> Chăm sóc đại
           lý
         </div>
-        <div class="item">
+        <div class="item" id="sidebarTeleNews">
           <img src="assets/images/telegram.png" alt="" /> Kênh tin tức
         </div>
       </div>
@@ -207,18 +288,16 @@
 
       <div class="marqueDiv">
         <img src="assets/images/icons/voIico.png" alt="volume" /> &nbsp;
-        <marquee direction="left" loop>
-          ✨ Đặc Quyền VIP CLUB Tại RR88👍 Thưởng lớn 3 ngày mới. ✨ Đặc Quyền
-          VIP CLUB Tại RR88👍 Thưởng lớn 3 ngày mới ✨ Đặc Quyền VIP CLUB Tại
-          RR88👍 Thưởng lớn 3 ngày mới ✨
-        </marquee>
+        <marquee direction="left" loop id="bannerMarquee"></marquee>
       </div>
     </section>
 
     <!-- LỢI ÍCH KHI HỢP TÁC -->
     <section class="benefits">
       <div class="container">
-        <h2 class="section-btn"><img src="assets/images/home-btn.png" /></h2>
+        <h2 class="section-btn" id="homeSectionBtn">
+          <img src="assets/images/home-btn.png" />
+        </h2>
         <!-- Section Title -->
         <h2 class="section-title">LỢI ÍCH KHI HỢP TÁC</h2>
 
@@ -300,7 +379,9 @@
 
     <section class="videos">
       <div class="container">
-        <h2 class="section-title">LÀM SAO ĐỂ THU NHẬP TIỀN TỶ?</h2>
+        <h2 class="section-title" id="videoTitle">
+          LÀM SAO ĐỂ THU NHẬP TIỀN TỶ?
+        </h2>
         <div class="vid-grid">
           <div class="vid-item" style="width: 100%">
             <div class="icon">
@@ -325,7 +406,7 @@
         </div>
 
         <div class="simple-para text-center">
-          <p>
+          <p id="videoDescription">
             Điều bạn cần làm là đăng ký tài khoản ĐẠI LÝ và "BẮT ĐẦU KIẾM TIỀN"!
           </p>
         </div>
@@ -394,7 +475,7 @@
       <div class="container">
         <div class="agent-title-bg">
           <img src="assets/images/bg-frame1.png" alt="ĐA NĂNG" class="frame1" />
-          <span>CHẾ ĐỘ ĐÃI NGỘ ĐẠI LÝ RR88</span>
+          <h4>CHẾ ĐỘ ĐÃI NGỘ ĐẠI LÝ RR88</h4>
           <div class="agent-para">
             <p>
               THƯ NGỎ: Chương trình đại lý của chúng tôi là một hệ thống thúc
@@ -415,7 +496,7 @@
       <div class="container">
         <div class="agent-title-bg">
           <img src="assets/images/bg-frame2.png" alt="ĐA NĂNG" class="frame2" />
-          <span>HOA HỒNG ĐẠI LÝ</span>
+          <h4>HOA HỒNG ĐẠI LÝ</h4>
         </div>
         <div class="commision-border">
           <div class="table-wrapper">
@@ -455,57 +536,14 @@
               </tbody>
             </table>
           </div>
-          <div class="note">
-            <p>
-              ✦ Lợi nhuận ròng = Tổng thắng thua - Tổng hoàn trả - Tổng khuyến
-              mãi - Chi phí nền tảng.
-            </p>
-            <p>
-              ✦ Chi phí nền tảng = Tổng thắng thua x 10% ( nếu đại lý trong
-              tháng không có lợi nhuận âm thì sẽ không phải tính chi phí nền
-              tảng)
-            </p>
-            <p>✦ Hoa hồng = Lợi nhuận ròng * tỷ lệ hoa hồng.</p>
-            <p>
-              ✦ Ví dụ 1: Đại lý trong tháng có lợi nhuận ròng là 2,000,000 điểm,
-              trong tháng có 5 hội viên hợp lệ, hoa hồng sẽ là 2,000,000 * 45%=
-              900,000 điểm (900 triệu VND).
-            </p>
-            <p>
-              ✦ Ví dụ 2: Đại lý trong tháng có lợi nhuận ròng là 2,000,000 điểm,
-              trong tháng có 20 hội viên hợp lệ, hoa hồng sẽ là 2,000,000 * 55%=
-              1,100,000 điểm (1 tỷ 1 trăm triệu VND)
-            </p>
-            <p>
-              ✦ Số hội viên hợp lệ trong tháng tối thiểu mà đại lý cần đạt để
-              nhận hoa hồng là 3 hội viên.
-            </p>
-            <p>
-              ✦ Nếu trong tháng đại lý không đạt được 2 điều kiện trên thì sẽ
-              không được tính hoa hồng tháng đó.
-            </p>
-            <p>
-              ✦ Hội viên hợp lệ: Hội viên trong tháng nạp tiền ≥ 1,000 điểm,
-              cược hợp lệ ≥ 3,000 điểm (dựa vào đánh giá tổng hợp IP, tính hoạt
-              động và tính nạp lại phê duyệt).
-            </p>
-            <p>✦ Chú ý:</p>
-            <p>
-              ‒ Đại lý Google SEO/ADS chạy từ khoá nội bộ của công ty mức hoa
-              hồng cố định là 15%. (Từ khóa nội bộ ví dụ: link mới RR88, link
-              RR88 , Đăng nhập RR88...). Ngoài ra nếu phát hiện seo các từ khóa
-              liên quan các web trong liên minh KJC cũng áp dụng mức hoa hồng
-              15%.
-            </p>
-            <p>‒ Chương trình này không áp dụng với sản phẩm xổ số.</p>
-          </div>
+          <div class="note" id="commissionNote"></div>
 
           <div class="commis-calculator">
             <h3>Bảng tính hoa hồng tự động</h3>
             <p>Công cụ tính toán hoa hồng chính xác cho đại lý</p>
             <!-- id="openCalcBtn" -->
-            <button>
-              <img src="assets/images/calc.png" alt="" /> Mở công cụ tính hoa
+            <button id="openCalcBtn">
+              123<img src="assets/images/calc.png" alt="" /> Mở công cụ tính hoa
               hồng
             </button>
           </div>
@@ -517,7 +555,7 @@
       <div class="container">
         <div class="agent-title-bg">
           <img src="assets/images/bg-frame3.png" alt="ĐA NĂNG" class="frame3" />
-          <span>TIỀN THƯỞNG PHÁT TRIỂN HỘI VIÊN MỚI</span>
+          <h4>TIỀN THƯỞNG PHÁT TRIỂN HỘI VIÊN MỚI</h4>
         </div>
         <div class="bonus-border">
           <div class="agent-para">
@@ -547,24 +585,7 @@
               </tbody>
             </table>
           </div>
-          <div class="note">
-            <p>
-              ✦ Ví dụ đại lý trong tháng có 10 hội viên mới hợp lệ, sẽ nhận được
-              tiền thưởng là 10*200 điểm = 2,000 điểm (2 triệu VND).
-            </p>
-            <p>
-              ✦ Hội viên mới hợp lệ: hội viên mới nạp đầu trong tháng, có tích
-              luỹ nạp tiền ≥ 1,000 điểm, cược hợp lệ ≥ 3,000 điểm (dựa vào đánh
-              giá tổng hợp IP, tính hoạt động và tính nạp lại phê duyệt).
-            </p>
-            <p>✦ Chú ý:</p>
-            <p>
-              – Đại lý Google SEO/ADS chạy từ khoá nội bộ của công ty không được
-              tham gia chương trình tiền thưởng hội viên mới.
-            </p>
-
-            <p>– Chương trình này không áp dụng với sản phẩm xổ số.</p>
-          </div>
+          <div class="note" id="bonusContent"></div>
         </div>
       </div>
     </section>
@@ -573,26 +594,8 @@
       <div class="container">
         <div class="agent-title-bg">
           <img src="assets/images/bg-frame4.png" alt="ĐA NĂNG" class="frame4" />
-          <span>CÁCH THỨC PHÁT HOA HỒNG VÀ TIỀN THƯỞNG</span>
-          <div class="note commis-bons">
-            <p>
-              ✦ Hoa hồng và tiền thưởng hội viên mới sẽ được phát trước ngày 10
-              mỗi tháng.
-            </p>
-            <p>
-              ✦ Hoa hồng và tiền thưởng đại lý sẽ được thanh toán trực tiếp vào
-              ví số dư trong tài khoản đại lý. Sau khi hệ thống kết toán, đại lý
-              có thể tạo lệnh rút tiền qua tài khoản ngân hàng, ví điện tử đã
-              liên kết.
-            </p>
-            <p>
-              ✦ Nếu trong ba tháng liên tiếp, cả 3 tháng đó đại lý đều không đạt
-              được 3 khách mới hợp lệ trên 1 tháng công ty sẽ đồng loạt điều
-              chỉnh tỷ lệ hoa hồng xuống còn 20%. Tỷ lệ hoa hồng sẽ tự động khôi
-              phục về mức bình thường khi đại lý đạt được 3 thành viên mới đủ
-              điều kiện trong bất kỳ tháng nào sau đó
-            </p>
-          </div>
+          <h4>CÁCH THỨC PHÁT HOA HỒNG VÀ TIỀN THƯỞNG</h4>
+          <div class="note commis-bons" id="commissionBonusContent"></div>
         </div>
       </div>
     </section>
@@ -601,32 +604,9 @@
       <div class="container">
         <div class="agent-title-bg">
           <img src="assets/images/bg-frame5.png" alt="ĐA NĂNG" class="frame5" />
-          <span>TÍNH TOÁN HOA HỒNG VÀ ĐIỀU KHOẢN</span>
-          <div class="note commis-bons">
-            <p>✦ Công thức tính hoa hồng: Lợi nhuận ròng x Tỷ lệ hoa hồng.</p>
-            <p>
-              ✦ Nếu đại lý có lợi nhuận dương thì sẽ trừ vào lợi nhuận các tháng
-              sau cho tới hết lợi nhuận dương
-            </p>
-            <p>
-              ✦ Hội viên lạm dụng, nhiều tài khoản, chạy chỉ tiêu, làm giả số
-              liệu sẽ không được tính là hội viên hợp lệ.
-            </p>
-            <p>
-              ✦ Thành viên không được tạo tài khoản game của mình dưới link đại
-              lý của mình, nếu vi phạm sẽ kéo tài khoản đó ra khỏi đường link
-              đại lý, nếu nghiêm trọng có thể chấm dứt hợp tác.
-            </p>
-            <p>
-              ✦ Công ty có quyền đơn phương chấm dứt hợp tác nếu phát hiện đại
-              lý sử dụng hành vi lạm dụng để trục lợi hoa hồng không chính đáng.
-            </p>
-            <p>
-              ✦ Nếu phát sinh vấn đề không đồng nhất trong cách hiểu về chương
-              trình này, công ty giữ nguyên quyền bảo lưu quyết định cuối cùng
-              trong bất kỳ trường hợp nào.
-            </p>
-          </div>
+          <h4>TÍNH TOÁN HOA HỒNG VÀ ĐIỀU KHOẢN</h4>
+
+          <div class="note commis-bons" id="policyContent"></div>
         </div>
       </div>
     </section>
@@ -870,12 +850,223 @@
     <!-- FOOTER CHÍNH -->
     <!-- <script src="assets/js/main.js"></script> -->
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const vimeoPlayer = document.getElementById("vimeoPlayer");
-        if (vimeoPlayer) {
-          console.log("Vimeo player ready");
+      // API Configuration
+      const API_BASE_URL = "http://192.168.16.101:4567";
+      const CONTENT_API = `${API_BASE_URL}/setting/public`;
+      const VIDEO_API = `${API_BASE_URL}/public/signing-videos/active`;
+
+      // Link mapping configuration
+      const LINK_MAPPING = {
+        "link:home": [
+          "homeLogo",
+          "homeLogoMobile",
+          "sidebarLogo",
+          "homeSectionBtn",
+        ],
+        "link:support": ["supportItem", "sidebarSupport"],
+        "link:register": ["registerBtn", "registerBtnMobile"],
+        "link:login": ["loginBtn", "loginBtnMobile"],
+        "link:tele-new": ["teleNewsItem", "sidebarTeleNews"],
+        "link:tele-support": ["teleSupportLink"],
+      };
+
+      // Main function to fetch and bind data
+      async function initializePageData() {
+        try {
+          console.log("Starting data initialization...");
+
+          // Fetch content data
+          const contentResponse = await fetch(CONTENT_API).then((res) =>
+            res.json()
+          );
+          console.log("Content API response:", contentResponse);
+
+          // Process and bind data
+          processContentData(contentResponse);
+
+          console.log("Data binding completed successfully");
+        } catch (error) {
+          console.error("Error initializing page data:", error);
+        }
+      }
+
+      // Process content data and bind to elements
+      function processContentData(contentData) {
+        if (!contentData || !Array.isArray(contentData)) {
+          console.error("Invalid content data format");
+          return;
         }
 
+        // Convert array to object for easy access
+        const contentMap = {};
+        contentData.forEach((item) => {
+          if (item.key && item.value) {
+            contentMap[item.key] = item.value;
+          }
+        });
+
+        console.log("Content map:", contentMap);
+
+        // Bind marquee content
+        if (contentMap["content:banner"]) {
+          bindMarqueeContent("bannerMarquee", contentMap["content:banner"]);
+        }
+        // Bind main commission content (NEW)
+        if (contentMap["content:agent-com"]) {
+          bindContentToElement(
+            "commissionNote",
+            contentMap["content:agent-com"]
+          );
+        }
+        // Bind agent commission content (NEW)
+        if (contentMap["content:bonus"]) {
+          bindContentToElement("bonusContent", contentMap["content:bonus"]);
+        }
+
+        // Bind commission bonus content (NEW)
+        if (contentMap["content:com-bonus"]) {
+          bindContentToElement(
+            "commissionBonusContent",
+            contentMap["content:com-bonus"]
+          );
+        }
+        // Bind policy content (NEW)
+        if (contentMap["content:policy"]) {
+          bindContentToElement("policyContent", contentMap["content:policy"]);
+        }
+
+        // Bind links
+        Object.entries(LINK_MAPPING).forEach(([key, elementIds]) => {
+          if (contentMap[key]) {
+            elementIds.forEach((elementId) => {
+              bindLinksToElement(elementId, contentMap[key]);
+            });
+          }
+        });
+
+        // Fetch and bind video data
+        fetchVideoData();
+      }
+
+      // Simple video data function
+      async function fetchVideoData() {
+        try {
+          const response = await fetch(VIDEO_API);
+          const videoData = await response.json();
+
+          if (videoData.success && videoData.data) {
+            // Update video iframe - use player URL, not page URL
+            const videoIframe = document.getElementById("vimeoPlayer");
+            if (videoIframe && videoData.data.videoUrl) {
+              // Convert Vimeo page URL to player URL
+              let playerUrl = videoData.data.videoUrl;
+              if (playerUrl.includes("vimeo.com")) {
+                // Extract video ID and create player URL
+                const videoId = playerUrl
+                  .split("/")
+                  .filter((part) => part.match(/^\d+$/))[0];
+                if (videoId) {
+                  playerUrl = `https://player.vimeo.com/video/${videoId}?title=0&byline=0&portrait=0&badge=0&autopause=0&autoplay=0&loop=1`;
+                }
+              }
+              videoIframe.src = playerUrl;
+            }
+
+            // Update video title
+            const videoTitle = document.getElementById("videoTitle");
+            if (videoTitle && videoData.data.title) {
+              videoTitle.textContent = videoData.data.title;
+            }
+
+            // Update video description
+            const videoDesc = document.getElementById("videoDescription");
+            if (videoDesc && videoData.data.description) {
+              videoDesc.textContent = videoData.data.description;
+            }
+          }
+        } catch (error) {
+          console.error("Error loading video data:", error);
+        }
+      }
+      // Add this new function for content binding
+      function bindContentToElement(elementId, content) {
+        try {
+          const element = document.getElementById(elementId);
+
+          if (!element) {
+            console.warn(`Content element not found: ${elementId}`);
+            return;
+          }
+
+          // Replace inner HTML with API content
+          element.innerHTML = content;
+          console.log(`Bound content to ${elementId}`);
+        } catch (error) {
+          console.error(`Error binding content to ${elementId}:`, error);
+        }
+      }
+      // Bind marquee content
+      function bindMarqueeContent(elementId, content) {
+        try {
+          const element = document.getElementById(elementId);
+
+          if (!element) {
+            console.warn(`Marquee element not found: ${elementId}`);
+            return;
+          }
+
+          // Extract text content from HTML for marquee
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = content;
+          const textContent = tempDiv.textContent || tempDiv.innerText || "";
+          element.innerHTML = textContent;
+
+          console.log(`Bound marquee content to ${elementId}`);
+        } catch (error) {
+          console.error(
+            `Error binding marquee content to ${elementId}:`,
+            error
+          );
+        }
+      }
+
+      // Bind links to elements
+      function bindLinksToElement(elementId, linkUrl) {
+        try {
+          const element = document.getElementById(elementId);
+
+          if (!element) {
+            console.warn(`Element not found for link: ${elementId}`);
+            return;
+          }
+
+          if (element.tagName === "A") {
+            // Direct link element
+            element.href = linkUrl;
+            console.log(`Bound link ${linkUrl} to <a> element: ${elementId}`);
+          } else if (element.classList.contains("btn-primary")) {
+            // Button element - add click handler
+            element.onclick = () => {
+              window.open(linkUrl, "_blank");
+              return false;
+            };
+            element.style.cursor = "pointer";
+            console.log(`Bound link ${linkUrl} to button: ${elementId}`);
+          } else {
+            // Other elements (support items) - add click handler
+            element.style.cursor = "pointer";
+            element.onclick = () => {
+              window.open(linkUrl, "_blank");
+            };
+            console.log(`Bound link ${linkUrl} to support item: ${elementId}`);
+          }
+        } catch (error) {
+          console.error(`Error binding link to ${elementId}:`, error);
+        }
+      }
+
+      // Your existing DOM content loaded code
+      document.addEventListener("DOMContentLoaded", function () {
         // Mobile Sidebar Functionality
         const hamburger = document.getElementById("hamburger");
         const closeBtn = document.getElementById("closeSidebar");
@@ -928,6 +1119,8 @@
         if (!localStorage.getItem("noPromoToday")) {
           openPromo();
         }
+        // Initialize API data after DOM is ready
+        initializePageData();
 
         // Calculator Modal Logic
         const openCalcBtn = document.getElementById("openCalcBtn");
