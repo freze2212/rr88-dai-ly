@@ -158,14 +158,17 @@
             </div>
             <div class="result-row">
               <div class="result-item item1">
+                <div class="aa"></div>
                 <label>Chi phí nền tảng</label>
                 <span id="chiPhi">0 VND</span>
               </div>
               <div class="result-item item2">
+                <div class="bb"></div>
                 <label>Lợi nhuận ròng</label>
                 <span id="loiNhuan">0 VND</span>
               </div>
               <div class="result-item item3">
+                <div class="cc"></div>
                 <label>Tỷ lệ hoa hồng</label>
                 <span id="tyLe">0%</span>
               </div>
@@ -634,7 +637,6 @@
 
     <!-- PC Footer -->
     <footer class="footer">
-      <!-- Top Banner Section -->
       <section class="footer-banner">
         <div class="container">
           <div class="banner-content">
@@ -868,15 +870,11 @@
         </div>
       </section>
     </footer>
-    <!-- FOOTER CHÍNH -->
-    <!-- <script src="assets/js/main.js"></script> -->
     <script>
       // API Configuration
       const API_BASE_URL = "http://192.168.16.101:4567";
       const CONTENT_API = `${API_BASE_URL}/setting/public`;
       const VIDEO_API = `${API_BASE_URL}/public/signing-videos/active`;
-
-      // Link mapping configuration
       const LINK_MAPPING = {
         "link:home": [
           "homeLogo",
@@ -891,18 +889,14 @@
         "link:tele-support": ["teleSupportLink"],
       };
 
-      // Main function to fetch and bind data
       async function initializePageData() {
         try {
           console.log("Starting data initialization...");
 
-          // Fetch content data
           const contentResponse = await fetch(CONTENT_API).then((res) =>
             res.json()
           );
           console.log("Content API response:", contentResponse);
-
-          // Process and bind data
           processContentData(contentResponse);
 
           console.log("Data binding completed successfully");
@@ -911,14 +905,12 @@
         }
       }
 
-      // Process content data and bind to elements
       function processContentData(contentData) {
         if (!contentData || !Array.isArray(contentData)) {
           console.error("Invalid content data format");
           return;
         }
 
-        // Convert array to object for easy access
         const contentMap = {};
         contentData.forEach((item) => {
           if (item.key && item.value) {
@@ -928,35 +920,32 @@
 
         console.log("Content map:", contentMap);
 
-        // Bind marquee content
         if (contentMap["content:banner"]) {
           bindMarqueeContent("bannerMarquee", contentMap["content:banner"]);
         }
-        // Bind main commission content (NEW)
+
         if (contentMap["content:agent-com"]) {
           bindContentToElement(
             "commissionNote",
             contentMap["content:agent-com"]
           );
         }
-        // Bind agent commission content (NEW)
+
         if (contentMap["content:bonus"]) {
           bindContentToElement("bonusContent", contentMap["content:bonus"]);
         }
 
-        // Bind commission bonus content (NEW)
         if (contentMap["content:com-bonus"]) {
           bindContentToElement(
             "commissionBonusContent",
             contentMap["content:com-bonus"]
           );
         }
-        // Bind policy content (NEW)
+
         if (contentMap["content:policy"]) {
           bindContentToElement("policyContent", contentMap["content:policy"]);
         }
 
-        // Bind links
         Object.entries(LINK_MAPPING).forEach(([key, elementIds]) => {
           if (contentMap[key]) {
             elementIds.forEach((elementId) => {
@@ -965,24 +954,19 @@
           }
         });
 
-        // Fetch and bind video data
         fetchVideoData();
       }
 
-      // Simple video data function
       async function fetchVideoData() {
         try {
           const response = await fetch(VIDEO_API);
           const videoData = await response.json();
 
           if (videoData.success && videoData.data) {
-            // Update video iframe - use player URL, not page URL
             const videoIframe = document.getElementById("vimeoPlayer");
             if (videoIframe && videoData.data.videoUrl) {
-              // Convert Vimeo page URL to player URL
               let playerUrl = videoData.data.videoUrl;
               if (playerUrl.includes("vimeo.com")) {
-                // Extract video ID and create player URL
                 const videoId = playerUrl
                   .split("/")
                   .filter((part) => part.match(/^\d+$/))[0];
@@ -993,13 +977,11 @@
               videoIframe.src = playerUrl;
             }
 
-            // Update video title
             const videoTitle = document.getElementById("videoTitle");
             if (videoTitle && videoData.data.title) {
               videoTitle.textContent = videoData.data.title;
             }
 
-            // Update video description
             const videoDesc = document.getElementById("videoDescription");
             if (videoDesc && videoData.data.description) {
               videoDesc.textContent = videoData.data.description;
@@ -1009,7 +991,7 @@
           console.error("Error loading video data:", error);
         }
       }
-      // Add this new function for content binding
+
       function bindContentToElement(elementId, content) {
         try {
           const element = document.getElementById(elementId);
@@ -1019,14 +1001,13 @@
             return;
           }
 
-          // Replace inner HTML with API content
           element.innerHTML = content;
           console.log(`Bound content to ${elementId}`);
         } catch (error) {
           console.error(`Error binding content to ${elementId}:`, error);
         }
       }
-      // Bind marquee content
+
       function bindMarqueeContent(elementId, content) {
         try {
           const element = document.getElementById(elementId);
@@ -1036,7 +1017,6 @@
             return;
           }
 
-          // Extract text content from HTML for marquee
           const tempDiv = document.createElement("div");
           tempDiv.innerHTML = content;
           const textContent = tempDiv.textContent || tempDiv.innerText || "";
@@ -1051,7 +1031,6 @@
         }
       }
 
-      // Bind links to elements
       function bindLinksToElement(elementId, linkUrl) {
         try {
           const element = document.getElementById(elementId);
@@ -1062,11 +1041,9 @@
           }
 
           if (element.tagName === "A") {
-            // Direct link element
             element.href = linkUrl;
             console.log(`Bound link ${linkUrl} to <a> element: ${elementId}`);
           } else if (element.classList.contains("btn-primary")) {
-            // Button element - add click handler
             element.onclick = () => {
               window.open(linkUrl, "_blank");
               return false;
@@ -1074,7 +1051,6 @@
             element.style.cursor = "pointer";
             console.log(`Bound link ${linkUrl} to button: ${elementId}`);
           } else {
-            // Other elements (support items) - add click handler
             element.style.cursor = "pointer";
             element.onclick = () => {
               window.open(linkUrl, "_blank");
@@ -1086,9 +1062,7 @@
         }
       }
 
-      // Your existing DOM content loaded code
       document.addEventListener("DOMContentLoaded", function () {
-        // Mobile Sidebar Functionality
         const hamburger = document.getElementById("hamburger");
         const closeBtn = document.getElementById("closeSidebar");
         const sidebar = document.getElementById("sidebar");
@@ -1108,7 +1082,6 @@
         if (closeBtn) closeBtn.addEventListener("click", closeSidebar);
         if (overlay) overlay.addEventListener("click", closeSidebar);
 
-        // Bot Toggle Functionality
         const teleBot = document.querySelector(".tele-bot");
         const botContent = document.querySelector(".bot-content");
         if (teleBot && botContent) {
@@ -1118,7 +1091,6 @@
           });
         }
 
-        // Promo Modal Logic
         const promoModal = document.getElementById("promoModal");
         const closePromo = document.getElementById("closePromo");
         const noShowToday = document.getElementById("noShowToday");
@@ -1136,14 +1108,12 @@
 
         if (closePromo) closePromo.addEventListener("click", closePromoModal);
 
-        // Check if should show promo on load
         if (!localStorage.getItem("noPromoToday")) {
           openPromo();
         }
-        // Initialize API data after DOM is ready
+
         initializePageData();
 
-        // Calculator Modal Logic
         // Calculator Modal Logic
         const openCalcBtn = document.getElementById("openCalcBtn");
         const calcModal = document.getElementById("calcModal");
@@ -1151,7 +1121,7 @@
 
         function openCalc() {
           calcModal.style.display = "flex";
-          calculate(); // Initial calculation
+          calculate();
         }
 
         function closeCalcModal() {
@@ -1161,10 +1131,8 @@
         if (openCalcBtn) openCalcBtn.addEventListener("click", openCalc);
         if (closeCalc) closeCalc.addEventListener("click", closeCalcModal);
 
-        // Initialize sliders and number inputs
         initializeCalculatorInputs();
 
-        // Fake API Calculation Function
         function calculate() {
           const data = {
             thuaThang:
@@ -1178,9 +1146,7 @@
 
           console.log("Data for calculation:", data);
 
-          // Simulate API call
           setTimeout(() => {
-            // Calculation logic
             const total = data.thuaThang;
             const refund = data.hoanTra;
             const promo = data.khuyenMai;
@@ -1202,7 +1168,6 @@
 
             const totalCommission = netProfit * rate;
 
-            // Update UI
             document.getElementById("chiPhi").textContent =
               Math.round(chiPhi * 1000).toLocaleString() + " VND";
             document.getElementById("loiNhuan").textContent =
@@ -1211,12 +1176,10 @@
             document.getElementById("tongFinal").textContent =
               Math.round(totalCommission * 1000).toLocaleString() + " VND";
 
-            // Update status message
             updateStatusMessage(members, netProfit, totalCommission);
           }, 100);
         }
 
-        // Initialize calculator inputs with slider functionality
         function initializeCalculatorInputs() {
           const inputConfigs = [
             {
@@ -1254,26 +1217,22 @@
             const sliderInput = document.getElementById(config.sliderId);
 
             if (numberInput && sliderInput) {
-              // Number input change -> update slider
               numberInput.addEventListener("input", function () {
                 sliderInput.value = this.value;
                 calculate();
               });
 
-              // Slider change -> update number input
               sliderInput.addEventListener("input", function () {
                 numberInput.value = this.value;
                 calculate();
               });
 
-              // Set initial values
               sliderInput.min = config.min;
               sliderInput.max = config.max;
               sliderInput.step = config.step;
             }
           });
 
-          // Auto calculate on input change
           const inputs = ["thuaThang", "hoanTra", "khuyenMai", "thanhVien"].map(
             (id) => document.getElementById(id)
           );
@@ -1283,7 +1242,6 @@
           });
         }
 
-        // Update status message based on conditions
         function updateStatusMessage(members, netProfit, totalCommission) {
           const statusElement = document.getElementById("tongHoaHong");
           const conditionBtn = document.querySelector(".condition-btn");

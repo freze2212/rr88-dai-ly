@@ -1089,6 +1089,18 @@ tbody tr:hover {
   background: #f9fafb;
   border: 1.02px solid #f0f0f0;
 }
+.result-item.item1:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.result-item.item2:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.result-item.item3:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.result-item.item4:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 
 .result-item.full-width {
   display: flex;
