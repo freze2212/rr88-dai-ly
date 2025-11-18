@@ -1220,6 +1220,318 @@ tbody tr:hover {
   width: 100%;
 }
 
+/* expend more details for calender  */
+/* ------------------ Toggle Button ------------------ */
+.calc-toggle-wrapper {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.calc-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.calc-toggle-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.calc-toggle-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #f7931e50;
+}
+
+.calc-toggle-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+/* ------------------ Calculation Details Section ------------------ */
+.calc-details-section {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 12px;
+}
+
+.calc-details-header {
+  background: linear-gradient(to right, #f9f9f9, #f0f0f0);
+  padding: 8px 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.calc-details-title {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2b8eff;
+}
+
+.calc-details-title-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  color: #f7931e;
+}
+
+/* ------------------ Boxes ------------------ */
+.calc-details-content {
+  padding: 12px;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.calc-box {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.calc-box-title {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+.dot.red {
+  background: #2b8eff;
+}
+.dot.blue {
+  background-color: #3b82f6;
+}
+.dot.green {
+  background-color: #10b981;
+}
+.dot.purple {
+  background-color: #8b5cf6;
+}
+.dot.black {
+  background-color: #000;
+}
+
+/* Highlight text */
+.highlight-blue {
+  font-weight: bold;
+  color: #2563eb;
+}
+
+.font-medium {
+  font-weight: 700;
+}
+
+/* ------------------ Mono Calculation Box ------------------ */
+.calc-mono-box {
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  padding: 8px;
+  font-family: monospace;
+  font-size: 13px;
+}
+
+.calc-mono-box .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.calc-mono-box .row.red {
+  color: #dc2626;
+  font-weight: 800;
+}
+
+.calc-mono-box .row.result-green {
+  font-weight: bold;
+  font-size: 16px;
+  color: #16a34a;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.divider {
+  margin: 6px 0;
+  border-color: #dbdbdb2e;
+}
+
+/* ------------------ Commission Table ------------------ */
+.commission-table {
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 12px;
+}
+
+.table-title {
+  font-size: 12px;
+  color: #555;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 3fr));
+  gap: 6px;
+}
+
+.grid-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 6px;
+  font-size: 14px;
+}
+
+.grid-item .label {
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.grid-item .desc {
+  color: #555;
+  font-size: 14px;
+}
+
+/* ------------------ Stats Grid ------------------ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.stats-item {
+  background-color: #fce9ff;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.stats-item .label {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.stats-item .value {
+  font-size: 16px;
+  font-weight: bold;
+  color: #7c3aed;
+}
+
+/* ------------------ Commission Level ------------------ */
+.commission-level-box {
+  background: #fce9ff;
+  border-radius: 6px;
+  padding: 8px;
+  border: 1px solid #ffccf9;
+  margin-bottom: 12px;
+}
+
+.commission-level-box .label {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 2px;
+}
+
+.commission-level-box .value {
+  font-size: 14px;
+  font-weight: bold;
+  color: #7c3aed;
+}
+
+/* ------------------ Warning Box ------------------ */
+.warning-box {
+  background-color: #ffeded;
+  border: 1px solid #ff8888;
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 12px;
+}
+
+.warning-title {
+  font-size: 12px;
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.warning-text {
+  font-size: 11px;
+  color: #dc2626;
+  margin-top: 2px;
+}
+
+/* ------------------ Total Commission Box ------------------ */
+.total-commission-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  color: #000;
+}
+
+.total-commission-box.white .calc-box-title {
+  color: #fff;
+}
+
+.total-inner {
+  background-color: #2b8eff;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.total-inner .text-center {
+  text-align: center;
+  color: #fff;
+}
+
+.total-inner .small {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.total-inner .formula {
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.total-inner .sub {
+  font-size: 10px;
+  opacity: 0.75;
+  margin-top: 2px;
+}
+
+.total-inner .total {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .header.mb {

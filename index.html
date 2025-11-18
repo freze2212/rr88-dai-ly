@@ -199,6 +199,173 @@
             <span>Tổng hoa hồng</span>
             <span id="tongFinal">0 VND</span>
           </div>
+
+          <!-- Toggle button -->
+          <div class="calc-toggle-wrapper">
+            <button
+              id="toggleCalculationDetailsBtn"
+              class="calc-toggle-btn"
+              onclick="toggleCalculationDetails()"
+            >
+              <svg
+                class="calc-toggle-icon"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 15l7-7 7 7"
+                ></path>
+              </svg>
+              <span id="calculationDetailsBtnText">Xem chi tiết tính toán</span>
+            </button>
+          </div>
+
+          <!-- Calculation Details Section -->
+          <div
+            id="calculationDetailsSection"
+            class="calc-details-section"
+            style="display: none"
+          >
+            <div class="calc-details-header">
+              <h5 class="calc-details-title">
+                <div class="dot red"></div>
+                Chi tiết tính toán
+              </h5>
+            </div>
+
+            <div id="calculationDetails" class="calc-details-content">
+              <!-- Box 1 -->
+              <div class="calc-box">
+                <h6 class="calc-box-title">
+                  <div class="dot blue"></div>
+                  1. Chi phí nền tảng
+                </h6>
+                <p class="calc-text">
+                  <span class="font-medium"
+                    >0 VND × 10% =
+                    <span class="highlight-blue">0 VND</span></span
+                  >
+                </p>
+              </div>
+
+              <!-- Box 2 -->
+              <div class="calc-box">
+                <h6 class="calc-box-title">
+                  <div class="dot green"></div>
+                  2. Lợi nhuận ròng
+                </h6>
+
+                <div class="calc-mono-box">
+                  <div class="row">
+                    <span>Tổng thắng thua:</span>
+                    <span class="bold">0 VND</span>
+                  </div>
+                  <div class="row red">
+                    <span>- Tổng hoàn trả:</span>
+                    <span class="bold">0 VND</span>
+                  </div>
+
+                  <div class="row red">
+                    <span>- Tổng khuyến mãi:</span>
+                    <span class="bold">0 VND</span>
+                  </div>
+
+                  <div class="row red">
+                    <span>- Chi phí nền tảng:</span>
+                    <span class="bold">0 VND</span>
+                  </div>
+
+                  <hr class="divider" />
+
+                  <div class="row result-green">
+                    <span>= Lợi nhuận ròng:</span>
+                    <span>0 VND</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Box 3 -->
+              <div class="calc-box">
+                <h6 class="calc-box-title">
+                  <div class="dot purple"></div>
+                  3. Xác định tỷ lệ hoa hồng
+                </h6>
+
+                <div class="commission-table">
+                  <div class="table-title">
+                    📋 Bảng tham khảo các mức hoa hồng:
+                  </div>
+
+                  <div class="grid">
+                    <div class="grid-item">
+                      <div class="label">Mức 5: 60%</div>
+                      <div class="desc">≥ 5,000,000 + ≥ 30 thành viên</div>
+                    </div>
+                    <div class="grid-item">
+                      <div class="label">Mức 4: 55%</div>
+                      <div class="desc">≥ 1,000,000 + ≥ 20 thành viên</div>
+                    </div>
+                    <div class="grid-item">
+                      <div class="label">Mức 3: 50%</div>
+                      <div class="desc">≥ 100,000 + ≥ 10 thành viên</div>
+                    </div>
+                    <div class="grid-item">
+                      <div class="label">Mức 2: 45%</div>
+                      <div class="desc">≥ 1 + ≥ 5 thành viên</div>
+                    </div>
+                    <div class="grid-item">
+                      <div class="label">Mức 1: 35%</div>
+                      <div class="desc">≥ 1 + ≥ 3 thành viên</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="stats-grid">
+                  <div class="stats-item">
+                    <div class="label">Lợi nhuận ròng</div>
+                    <div class="value">0 VND</div>
+                  </div>
+                  <div class="stats-item">
+                    <div class="label">Số thành viên hợp lệ</div>
+                    <div class="value">0 người</div>
+                  </div>
+                </div>
+
+                <div class="commission-level-box">
+                  <div class="label">Mức hoa hồng áp dụng</div>
+                  <div class="value">Không đủ điều kiện</div>
+                </div>
+
+                <div class="warning-box">
+                  <div class="warning-title">⚠️ Lý do không đủ điều kiện:</div>
+                  <div class="warning-text">
+                    • Cần ít nhất 3 thành viên hợp lệ
+                  </div>
+                </div>
+              </div>
+
+              <!-- Box 4 -->
+              <div class="total-commission-box">
+                <h6 class="calc-box-title white">
+                  <div class="dot black"></div>
+                  4. Tổng hoa hồng
+                </h6>
+
+                <div class="total-inner">
+                  <div class="text-center">
+                    <div class="small">Công thức tính</div>
+                    <div class="formula">0 VND × 0.00%</div>
+                    <div class="sub"></div>
+                    <div class="total">= 0 VND</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1142,6 +1309,44 @@
         if (openCalcBtn) openCalcBtn.addEventListener("click", openCalc);
         if (closeCalc) closeCalc.addEventListener("click", closeCalcModal);
 
+        // Initial state for details toggle
+        const calculationDetailsSection = document.getElementById(
+          "calculationDetailsSection"
+        );
+        if (calculationDetailsSection) {
+          calculationDetailsSection.style.display = "none";
+        }
+        const btnText = document.getElementById("calculationDetailsBtnText");
+        if (btnText) {
+          btnText.textContent = "Xem chi tiết tính toán";
+        }
+        const toggleIcon = document.querySelector(".calc-toggle-icon");
+        if (toggleIcon) {
+          toggleIcon.style.transform = "rotate(0deg)";
+        }
+
+        // Define global toggle function
+        window.toggleCalculationDetails = function () {
+          const section = document.getElementById("calculationDetailsSection");
+          const text = document.getElementById("calculationDetailsBtnText");
+          const icon = document.querySelector(".calc-toggle-icon");
+          if (section && text && icon) {
+            if (
+              section.style.display === "none" ||
+              section.style.display === ""
+            ) {
+              section.style.display = "block";
+              text.textContent = "Ẩn chi tiết tính toán";
+              icon.style.transform = "rotate(180deg)";
+              calculate(); // Update details when shown
+            } else {
+              section.style.display = "none";
+              text.textContent = "Xem chi tiết tính toán";
+              icon.style.transform = "rotate(0deg)";
+            }
+          }
+        };
+
         initializeCalculatorInputs();
 
         function calculate() {
@@ -1179,13 +1384,102 @@
 
             const totalCommission = netProfit * rate;
 
-            document.getElementById("chiPhi").textContent =
-              Math.round(chiPhi * 1000).toLocaleString() + " VND";
-            document.getElementById("loiNhuan").textContent =
-              Math.round(netProfit * 1000).toLocaleString() + " VND";
+            const formatVND = (points) =>
+              Math.round(points * 1000).toLocaleString() + " VND";
+            const thuaVND = formatVND(total);
+            const hoanVND = formatVND(refund);
+            const khuyenVND = formatVND(promo);
+            const tempProfitVND = formatVND(tempProfit);
+            const chiPhiVND = formatVND(chiPhi);
+            const netProfitVND = formatVND(netProfit);
+            const totalCommVND = formatVND(totalCommission);
+
+            document.getElementById("chiPhi").textContent = chiPhiVND;
+            document.getElementById("loiNhuan").textContent = netProfitVND;
             document.getElementById("tyLe").textContent = rate * 100 + "%";
-            document.getElementById("tongFinal").textContent =
-              Math.round(totalCommission * 1000).toLocaleString() + " VND";
+            document.getElementById("tongFinal").textContent = totalCommVND;
+
+            // Update details sections
+            // Box 1: Chi phí nền tảng
+            const chiPhiSpan = document.querySelector(
+              "#calculationDetails .calc-box:nth-of-type(1) .font-medium"
+            );
+            if (chiPhiSpan) {
+              chiPhiSpan.innerHTML = `${thuaVND} × 10% = <span class="highlight-blue">${chiPhiVND}</span>`;
+            }
+
+            // Box 2: Lợi nhuận ròng
+            const box2BoldSpans = document.querySelectorAll(
+              "#calculationDetails .calc-mono-box .row .bold"
+            );
+            if (box2BoldSpans.length >= 4) {
+              box2BoldSpans[0].textContent = thuaVND; // Tổng thắng thua
+              box2BoldSpans[1].textContent = hoanVND; // Hoàn trả
+              box2BoldSpans[2].textContent = khuyenVND; // Khuyến mãi
+              box2BoldSpans[3].textContent = chiPhiVND; // Chi phí
+            }
+            const netProfitResultSpan = document.querySelector(
+              "#calculationDetails .calc-mono-box .result-green span:last-child"
+            );
+            if (netProfitResultSpan) {
+              netProfitResultSpan.textContent = netProfitVND;
+            }
+
+            // Box 3: Tỷ lệ hoa hồng
+            const statsValues = document.querySelectorAll(
+              "#calculationDetails .stats-grid .stats-item .value"
+            );
+            if (statsValues.length >= 2) {
+              statsValues[0].textContent = netProfitVND;
+              statsValues[1].textContent = `${members} người`;
+            }
+            const levelValue = document.querySelector(
+              "#calculationDetails .commission-level-box .value"
+            );
+            if (levelValue) {
+              let levelText = "Không đủ điều kiện";
+              if (rate > 0) {
+                if (rate == 0.6) levelText = "Mức 5: 60%";
+                else if (rate == 0.55) levelText = "Mức 4: 55%";
+                else if (rate == 0.5) levelText = "Mức 3: 50%";
+                else if (rate == 0.45) levelText = "Mức 2: 45%";
+                else if (rate == 0.35) levelText = "Mức 1: 35%";
+              }
+              levelValue.textContent = levelText;
+            }
+            const warningBox = document.querySelector(
+              "#calculationDetails .warning-box"
+            );
+            const warningText = document.querySelector(
+              "#calculationDetails .warning-text"
+            );
+            if (warningBox && warningText) {
+              if (members < 3) {
+                warningText.textContent = "• Cần ít nhất 3 thành viên hợp lệ";
+                warningBox.style.display = "block";
+              } else if (netProfit < 1) {
+                warningText.textContent = "• Lợi nhuận ròng phải ≥ 1 điểm";
+                warningBox.style.display = "block";
+              } else {
+                warningBox.style.display = "none";
+              }
+            }
+
+            // Box 4: Tổng hoa hồng
+            const formulaEl = document.querySelector(
+              "#calculationDetails .formula"
+            );
+            if (formulaEl) {
+              formulaEl.textContent = `${netProfitVND} × ${(rate * 100).toFixed(
+                2
+              )}%`;
+            }
+            const totalEl = document.querySelector(
+              "#calculationDetails .total"
+            );
+            if (totalEl) {
+              totalEl.textContent = `= ${totalCommVND}`;
+            }
 
             updateStatusMessage(members, netProfit, totalCommission);
           }, 100);
